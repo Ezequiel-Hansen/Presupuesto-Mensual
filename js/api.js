@@ -1,6 +1,6 @@
 export async function getAll() {
     try {
-        const respuesta = await fetch('http://localhost:4000/all');
+        const respuesta = await fetch('https://presupuesto-mensual-back-production.up.railway.app/all');
         const json = await respuesta.json();
         return json
     } catch (error) {
@@ -10,7 +10,7 @@ export async function getAll() {
 
 export async function mount() {
     try {
-        const respuesta = await fetch('http://localhost:4000/mount');
+        const respuesta = await fetch('https://presupuesto-mensual-back-production.up.railway.app/mount');
         const json = await respuesta.json();
         return json
     } catch (error) {
@@ -20,7 +20,7 @@ export async function mount() {
 
 export async function create(datosPresupuesto) { // Recibe los datos como argumento
     try {
-        const respuesta = await fetch('http://localhost:4000/create', {
+        const respuesta = await fetch('https://presupuesto-mensual-back-production.up.railway.app/create', {
             method: 'POST', // Especificamos el método
             headers: {
                 'Content-Type': 'application/json' // Indicamos que enviamos un JSON
@@ -43,7 +43,7 @@ export async function create(datosPresupuesto) { // Recibe los datos como argume
 
 export async function setdate(datosPresupuesto) {
     try {
-        const respuesta = await fetch('http://localhost:4000/setdate', {
+        const respuesta = await fetch('https://presupuesto-mensual-back-production.up.railway.app/setdate', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -74,7 +74,7 @@ export async function setdate(datosPresupuesto) {
 
 export async function update(datosPresupuesto) {
     try {
-        const respuesta = await fetch(`http://localhost:4000/update/${datosPresupuesto.id_item}`, {
+        const respuesta = await fetch(`https://presupuesto-mensual-back-production.up.railway.app/update/${datosPresupuesto.id_item}`, {
             method: 'PATCH', // Especificamos el método
             headers: {
                 'Content-Type': 'application/json' // Indicamos que enviamos un JSON
@@ -96,7 +96,7 @@ export async function update(datosPresupuesto) {
 
 export async function deleted(idItem){
     try {
-        const respuesta = await fetch(`http://localhost:4000/deleted/${idItem}`, {
+        const respuesta = await fetch(`https://presupuesto-mensual-back-production.up.railway.app/deleted/${idItem}`, {
             method: 'DELETE', // Especificamos el método
             headers: {
                 'Content-Type': 'application/json' // Indicamos que enviamos un JSON
