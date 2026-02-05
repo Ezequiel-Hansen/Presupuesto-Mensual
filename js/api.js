@@ -1,6 +1,9 @@
 export async function getAll() {
     try {
-        const respuesta = await fetch('https://cynical-uninvestable-noble.ngrok-free.dev/all');
+        const respuesta = await fetch('https://cynical-uninvestable-noble.ngrok-free.dev/all',headers: {
+    "ngrok-skip-browser-warning": "true"
+  }
+});
         const json = await respuesta.json();
         return json
     } catch (error) {
@@ -10,7 +13,10 @@ export async function getAll() {
 
 export async function mount() {
     try {
-        const respuesta = await fetch('https://cynical-uninvestable-noble.ngrok-free.dev/mount');
+        const respuesta = await fetch('https://cynical-uninvestable-noble.ngrok-free.dev/mount',headers: {
+    "ngrok-skip-browser-warning": "true"
+  }
+});
         const json = await respuesta.json();
         return json
     } catch (error) {
@@ -23,7 +29,8 @@ export async function create(datosPresupuesto) { // Recibe los datos como argume
         const respuesta = await fetch('https://cynical-uninvestable-noble.ngrok-free.dev/create', {
             method: 'POST', // Especificamos el método
             headers: {
-                'Content-Type': 'application/json' // Indicamos que enviamos un JSON
+                'Content-Type': 'application/json',
+                "ngrok-skip-browser-warning": "true"// Indicamos que enviamos un JSON
             },
             body: JSON.stringify(datosPresupuesto) // Convertimos el objeto JS a string JSON
         });
@@ -46,7 +53,8 @@ export async function setdate(datosPresupuesto) {
         const respuesta = await fetch('https://cynical-uninvestable-noble.ngrok-free.dev/setdate', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                "ngrok-skip-browser-warning": "true"
             },
             body: JSON.stringify(datosPresupuesto)
         });
@@ -77,7 +85,8 @@ export async function update(datosPresupuesto) {
         const respuesta = await fetch(`https://cynical-uninvestable-noble.ngrok-free.dev/update/${datosPresupuesto.id_item}`, {
             method: 'PATCH', // Especificamos el método
             headers: {
-                'Content-Type': 'application/json' // Indicamos que enviamos un JSON
+                'Content-Type': 'application/json',
+                "ngrok-skip-browser-warning": "true"// Indicamos que enviamos un JSON
             },
             body: JSON.stringify(datosPresupuesto) // Convertimos el objeto JS a string JSON
         });
@@ -99,7 +108,8 @@ export async function deleted(idItem){
         const respuesta = await fetch(`https://cynical-uninvestable-noble.ngrok-free.dev/deleted/${idItem}`, {
             method: 'DELETE', // Especificamos el método
             headers: {
-                'Content-Type': 'application/json' // Indicamos que enviamos un JSON
+                'Content-Type': 'application/json',
+                "ngrok-skip-browser-warning": "true"// Indicamos que enviamos un JSON
             }
         });
         if (!respuesta.ok) {
