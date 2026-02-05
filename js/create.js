@@ -37,6 +37,9 @@ formularioGastos.addEventListener('submit', async (e) => {
 async function renderExpenseList() {
   const expenses = await getAll()
   const noExpensesRow = document.getElementById('noExpensesRow');
+  console.log("Tipo de dato:", typeof expenses);
+  console.log("¿Es Array?:", Array.isArray(expenses));
+  console.log("Contenido:", expenses);
 
   // Limpiar lista actual
   while (expensesList.firstChild) {
