@@ -1,6 +1,6 @@
 export async function getAll() {
     try {
-        const respuesta = await fetch('https://cynical-uninvestable-noble.ngrok-free.dev//all');
+        const respuesta = await fetch('https://cynical-uninvestable-noble.ngrok-free.dev/all');
         const json = await respuesta.json();
         return json
     } catch (error) {
@@ -10,7 +10,7 @@ export async function getAll() {
 
 export async function mount() {
     try {
-        const respuesta = await fetch('https://cynical-uninvestable-noble.ngrok-free.dev//mount');
+        const respuesta = await fetch('https://cynical-uninvestable-noble.ngrok-free.dev/mount');
         const json = await respuesta.json();
         return json
     } catch (error) {
@@ -20,7 +20,7 @@ export async function mount() {
 
 export async function create(datosPresupuesto) { // Recibe los datos como argumento
     try {
-        const respuesta = await fetch('https://cynical-uninvestable-noble.ngrok-free.dev//create', {
+        const respuesta = await fetch('https://cynical-uninvestable-noble.ngrok-free.dev/create', {
             method: 'POST', // Especificamos el método
             headers: {
                 'Content-Type': 'application/json' // Indicamos que enviamos un JSON
@@ -43,7 +43,7 @@ export async function create(datosPresupuesto) { // Recibe los datos como argume
 
 export async function setdate(datosPresupuesto) {
     try {
-        const respuesta = await fetch('https://cynical-uninvestable-noble.ngrok-free.dev//setdate', {
+        const respuesta = await fetch('https://cynical-uninvestable-noble.ngrok-free.dev/setdate', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -96,7 +96,7 @@ export async function update(datosPresupuesto) {
 
 export async function deleted(idItem){
     try {
-        const respuesta = await fetch(`https://cynical-uninvestable-noble.ngrok-free.dev//deleted/${idItem}`, {
+        const respuesta = await fetch(`https://cynical-uninvestable-noble.ngrok-free.dev/deleted/${idItem}`, {
             method: 'DELETE', // Especificamos el método
             headers: {
                 'Content-Type': 'application/json' // Indicamos que enviamos un JSON
