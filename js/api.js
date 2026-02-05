@@ -1,9 +1,10 @@
 export async function getAll() {
     try {
-        const respuesta = await fetch('https://cynical-uninvestable-noble.ngrok-free.dev/all',headers: {
-    "ngrok-skip-browser-warning": "true"
-  }
-});
+        const respuesta = await fetch('https://cynical-uninvestable-noble.ngrok-free.dev/all', {
+            headers: {
+                "ngrok-skip-browser-warning": "true"
+            }
+        });
         const json = await respuesta.json();
         return json
     } catch (error) {
@@ -13,10 +14,11 @@ export async function getAll() {
 
 export async function mount() {
     try {
-        const respuesta = await fetch('https://cynical-uninvestable-noble.ngrok-free.dev/mount',headers: {
-    "ngrok-skip-browser-warning": "true"
-  }
-});
+        const respuesta = await fetch('https://cynical-uninvestable-noble.ngrok-free.dev/mount', {
+            headers: {
+                "ngrok-skip-browser-warning": "true"
+            }
+        });
         const json = await respuesta.json();
         return json
     } catch (error) {
