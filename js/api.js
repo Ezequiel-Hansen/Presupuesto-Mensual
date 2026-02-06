@@ -72,9 +72,9 @@ export async function setdate(datosPresupuesto) {
 
         // 3. Usamos los datos
         console.log('Respuesta exitosa:', data);
-        
+
         // Retornamos la data para que create.js pueda usar el id_presupuesto
-        return data; 
+        return data;
 
     } catch (error) {
         console.error('Hubo un fallo en la petición POST:', error);
@@ -105,7 +105,7 @@ export async function update(datosPresupuesto) {
 }
 
 
-export async function deleted(idItem){
+export async function deleted(idItem) {
     try {
         const respuesta = await fetch(`https://cynical-uninvestable-noble.ngrok-free.dev/deleted/${idItem}`, {
             method: 'DELETE', // Especificamos el método
@@ -120,5 +120,18 @@ export async function deleted(idItem){
         console.log(`Elemento ${idItem} eliminado con éxito`);
     } catch (error) {
         console.log(error);
+    }
+}
+
+export async function getEuro() {
+    try {
+        const respuesta = await fetch('https://dolarapi.com/v1/cotizaciones/eur')
+        const json=await respuesta.json()
+        if (!respuesta.ok) {
+            throw new Error('Error en la respuesta del servidor');
+        }
+        return json
+    } catch (error) {
+        console.log(error)
     }
 }

@@ -1,4 +1,4 @@
-import { getAll, mount} from '../js/api.js'
+import { getAll, getEuro, mount} from '../js/api.js'
 
 // Inicializar la fecha actual
 let currentDate = new Date();
@@ -93,9 +93,12 @@ async function renderExpenseList() {
 
 
 // Actualizar el total de gastos
-function updateTotalExpenses(expenses) {
+async function updateTotalExpenses(expenses) {
+  const euro= await getEuro()
   const total = expenses.reduce((sum, expense) => sum + parseFloat(expense.monto), 0);
-  document.getElementById('totalExpenses').textContent = `$${total.toLocaleString('es-AR')}`;
+  let division= total/euro.compra
+  document.getElementById('totalExpensesARS').textContent = `$${total.toLocaleString('es-AR')}`;
+  document.getElementById('totalExpensesEU').textContent = `€${division.toFixed(2)}`
 }
 
 
