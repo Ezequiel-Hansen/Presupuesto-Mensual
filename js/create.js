@@ -20,6 +20,10 @@ formularioMes.addEventListener('submit', async (e) => {
 
 formularioGastos.addEventListener('submit', async (e) => {
   e.preventDefault()
+  if (!presupuestoActualId || presupuestoActualId.length === 0) {
+        alert("No se encontró un presupuesto activo. Por favor, intenta recargar la página.");
+        return;
+    }
   const nameInput = document.getElementById('expenseName');
   const priceInput = document.getElementById('expensePrice');
   const name = nameInput.value;
@@ -37,9 +41,6 @@ formularioGastos.addEventListener('submit', async (e) => {
 async function renderExpenseList() {
   const expenses = await getAll()
   const noExpensesRow = document.getElementById('noExpensesRow');
-  console.log("Tipo de dato:", typeof expenses);
-  console.log("¿Es Array?:", Array.isArray(expenses));
-  console.log("Contenido:", expenses);
 
   // Limpiar lista actual
   while (expensesList.firstChild) {
