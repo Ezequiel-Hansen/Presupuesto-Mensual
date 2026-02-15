@@ -1,3 +1,4 @@
+const token= localStorage.getItem("token")
 export async function getAll() {
     try {
         const respuesta = await fetch('https://cynical-uninvestable-noble.ngrok-free.dev/all', {
@@ -31,6 +32,7 @@ export async function create(datosPresupuesto) { // Recibe los datos como argume
         const respuesta = await fetch('https://cynical-uninvestable-noble.ngrok-free.dev/create', {
             method: 'POST', // Especificamos el método
             headers: {
+                'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json',
                 "ngrok-skip-browser-warning": "true"// Indicamos que enviamos un JSON
             },
@@ -55,6 +57,7 @@ export async function setdate(datosPresupuesto) {
         const respuesta = await fetch('https://cynical-uninvestable-noble.ngrok-free.dev/setdate', {
             method: 'POST',
             headers: {
+                'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json',
                 "ngrok-skip-browser-warning": "true"
             },
@@ -87,6 +90,7 @@ export async function update(datosPresupuesto) {
         const respuesta = await fetch(`https://cynical-uninvestable-noble.ngrok-free.dev/update/${datosPresupuesto.id_item}`, {
             method: 'PATCH', // Especificamos el método
             headers: {
+                'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json',
                 "ngrok-skip-browser-warning": "true"// Indicamos que enviamos un JSON
             },
@@ -110,6 +114,7 @@ export async function deleted(idItem) {
         const respuesta = await fetch(`https://cynical-uninvestable-noble.ngrok-free.dev/deleted/${idItem}`, {
             method: 'DELETE', // Especificamos el método
             headers: {
+                'Authorization': `Bearer ${token}`,
                 'Content-Type': 'application/json',
                 "ngrok-skip-browser-warning": "true"// Indicamos que enviamos un JSON
             }
