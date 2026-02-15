@@ -6,7 +6,8 @@ formLogin.addEventListener("submit",async (e)=>{
     e.preventDefault()
     const inputEmail=document.getElementById("email")
     const inputPass=document.getElementById("password")
-    const response={email:inputEmail.value, password_hash:password.value}
-    console.log(response)
+    const response={email:inputEmail.value, password_hash:inputPass.value}
     await login(response)
+    window.location.href = './create.html';
 })
+
