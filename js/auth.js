@@ -1,12 +1,12 @@
 export async function login(data) {
     try {
-        const respuesta = await fetch('http://localhost:4000/auth/login', {
-            method: 'POST', // Especificamos el método
+        const respuesta = await fetch('https://cynical-uninvestable-noble.ngrok-free.dev/auth/login', {
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                //"ngrok-skip-browser-warning": "true"// Indicamos que enviamos un JSON
+                "ngrok-skip-browser-warning": "true"
             },
-            body: JSON.stringify(data) // Convertimos el objeto JS a string JSON
+            body: JSON.stringify(data)
         });
         const token= await respuesta.json()
         localStorage.setItem("token",token.token)
@@ -18,13 +18,13 @@ export async function login(data) {
 
 export async function register(data) {
     try {
-        const respuesta = await fetch('http://localhost:4000/auth/register', {
-            method: 'POST', // Especificamos el método
+        const respuesta = await fetch('https://cynical-uninvestable-noble.ngrok-free.dev/auth/register', {
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                //"ngrok-skip-browser-warning": "true"// Indicamos que enviamos un JSON
+                "ngrok-skip-browser-warning": "true"
             },
-            body: JSON.stringify(data) // Convertimos el objeto JS a string JSON
+            body: JSON.stringify(data)
         });
         
     } catch (error) {
